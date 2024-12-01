@@ -1,0 +1,38 @@
+name: 일일 RSS 확인
+
+on:
+  schedule:
+    - cron: "0 23 * * *" # UTC 기준 23시, 한국 시간으로 아침 8시
+
+jobs:
+  check-rss:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v2
+
+      - name: Node.js 설정
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20"
+
+      - name: 의존성 설치
+        run: npm ci
+
+      - name: RSS 확인 스크립트 실행
+        run: node index.js
+        env:
+          APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
+
+      - name: 변경사항 커밋
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add last_check.json
+          git commit -m "Update last_check.json" || echo "No changes to commit"
+
+      - name: 변경사항 푸시
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
