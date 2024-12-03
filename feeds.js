@@ -66,6 +66,10 @@ const RSS_FEEDS = [
     name: "왓에버 블로그",
     url: "https://api.velog.io/rss/@whatever",
   },
+  {
+    name: "카카오페이 기술 블로그",
+    url: "https://tech.kakaopay.com/rss",
+  },
 ];
 
 export default RSS_FEEDS;
