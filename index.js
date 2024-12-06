@@ -27,7 +27,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const sendMail = (fileData, feed, lastPost) => {
+const sendMail = (feed, lastPost) => {
   const mailOptions = {
     from: "woogur29@gmail.com",
     to: "woogur29@gmail.com",
@@ -45,7 +45,8 @@ const sendMail = (fileData, feed, lastPost) => {
   });
 };
 
-const writeBlogData = (fileData, feedName, lastPostTitle) => {
+const writeBlogData = (feedName, lastPostTitle) => {
+  const fileData = getFileData();
   const copyFileData = { ...fileData };
   copyFileData[feedName] = lastPostTitle;
   fs.writeFileSync(LAST_CHECK_FILE, JSON.stringify(copyFileData));
@@ -74,12 +75,12 @@ const checkRSSFeeds = async () => {
 
       if (!fileData[feed.name]) {
         // 처음 추가한 RSS 데이터인 경우
-        writeBlogData(fileData, feed.name, lastPost.title);
+        writeBlogData(feed.name, lastPost.title);
         fileData[feed.name] = lastPost.title;
       }
 
       if (fileData[feed.name] !== lastPost.title) {
-        sendMail(fileData, feed, lastPost);
+        sendMail(feed, lastPost);
       }
     } catch (error) {
       console.error(`Error checking RSS feed ${feed.name}:`, error);
