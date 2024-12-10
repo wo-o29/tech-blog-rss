@@ -41,7 +41,7 @@ const sendMail = (feed, lastPost) => {
     }
 
     console.log("메일이 정상적으로 전송되었습니다.");
-    writeBlogData(fileData, feed.name, lastPost.title);
+    writeBlogData(feed.name, lastPost.title);
   });
 };
 
