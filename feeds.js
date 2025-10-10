@@ -70,6 +70,10 @@ const RSS_FEEDS = [
     name: "카카오페이 기술 블로그",
     url: "https://tech.kakaopay.com/rss",
   },
+  {
+    name: "tkdodo 블로그",
+    url: "https://tkdodo.eu/blog/rss.xml",
+  }
 ];
 
 export default RSS_FEEDS;
