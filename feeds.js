@@ -73,7 +73,23 @@ const RSS_FEEDS = [
   {
     name: "tkdodo 블로그",
     url: "https://tkdodo.eu/blog/rss.xml",
-  }
+  },
+  {
+    name: "kentcdodds 블로그",
+    url: "https://kentcdodds.com/blog/rss.xml",
+  },
+  {
+    name: "한재엽님 블로그",
+    url: "https://jbee.io/rss.xml",
+  },
+  {
+    name: "사람인 기술 블로그",
+    url: "https://saramin.github.io/feed.xml",
+  },
+  {
+    name: "올리브영 기술 블로그",
+    url: "https://oliveyoung.tech/rss.xml",
+  },
 ];
 
 export default RSS_FEEDS;
