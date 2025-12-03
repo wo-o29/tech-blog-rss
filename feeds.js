@@ -90,6 +90,7 @@ const RSS_FEEDS = [
     name: "올리브영 기술 블로그",
     url: "https://oliveyoung.tech/rss.xml",
   },
+  { name: "HEROPY.DEV님 블로그", url: "https://www.heropy.dev/rss.xml" },
 ];
 
 export default RSS_FEEDS;
