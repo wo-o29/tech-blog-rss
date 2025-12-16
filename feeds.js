@@ -91,6 +91,7 @@ const RSS_FEEDS = [
     url: "https://oliveyoung.tech/rss.xml",
   },
   { name: "HEROPY.DEV님 블로그", url: "https://www.heropy.dev/rss.xml" },
+  { name: "성정민님 블로그", url: "https://ikki-kki.dev/rss.xml" },
 ];
 
 export default RSS_FEEDS;
